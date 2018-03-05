@@ -8,11 +8,11 @@ router
     ctx.body = '禁止访问！'
   })
   
-  .get('/api/:name', controllers.api.Get)
-  .post('/api/:name', controllers.api.Post)
-  .put('/api/:name', controllers.api.Put)
-  .del('/api/:name', controllers.api.Delect)
-  .post('/auth/:action', controllers.auth.Post)
+  // .get('/api/:name', controllers.api.Get)
+  // .post('/api/:name', controllers.api.Post)
+  // .put('/api/:name', controllers.api.Put)
+  // .del('/api/:name', controllers.api.Delect)
+  // .post('/auth/:action', controllers.auth.Post)
 
   .post('/login', controllers.auth.Login)
   .post('/play/checkwinner',controllers.api.checkwinners)

@@ -18,25 +18,11 @@ export let checkwinner = (ctx) =>{
 
 import sequelize from '../lib/sequelize'
 import Sequelize from 'sequelize'
+import userDef from '../models/index'
+import sqlConfig from '../lib/sqlConfig'
+
 export let testDB = (ctx) =>{
-    const User = sequelize.define('user',{
-    id: {
-        type: Sequelize.STRING,
-        field: 'user_id',
-        primaryKey: true 
-        },
-    name: {
-      type: Sequelize.STRING,
-      field: 'user_name'
-    },
-    password: {
-      type: Sequelize.STRING,
-      field: 'user_pwd'
-    }},{
-        timestamps: false,
-        tableName: 'ys_user_info',
-        freezeTableName: true
-      });
+    const User = sequelize.define('user',userDef,sqlConfig);
 
     User.findAll({
         attributes: ['id', 'name'],

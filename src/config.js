@@ -9,7 +9,6 @@ export let System = {
   HTTP_server_host: 'www.XXX.com', // HTTP服务器地址,请勿添加"http://" （即前端调用使用的服务器地址，如果是APP请设置为 * ）
   HTTP_server_port: '65534', // HTTP服务器端口号
   System_country: 'zh-cn', // 所在国家的国家代码
-  System_plugin_path: path.join(__dirname, './plugins'), // 插件路径
   Session_Key: 'RESTfulAPI', // 生产环境务必随机设置一个值
   db_type: 'mysql' // 数据库类型
 }
@@ -21,11 +20,4 @@ export let DB = {
   password: 'jackpwd6-', // 数据库密码
   database: 'ys_car', // 数据库名称
   prefix: 'api_' // 默认"api_"
-}
-
-export let SendEmail = {
-  service: 'smtp.abcd.com', // SMTP服务提供商域名
-  username: 'postmaster%40abcd.com', // 用户名/用户邮箱
-  password: 'password', // 邮箱密码
-  sender_address: '"XX平台 👥" <postmaster@abcd.com>'
 }

@@ -1,7 +1,6 @@
 
 export let checkwinner = (ctx) =>{
     let currentUser = ctx.request.body.user
-    //console.log('currentUser',currentUser)
     if(currentUser&&currentUser.userName=='xin_liang'){
         ctx.body = {
             'result':'恭喜！您中奖了'
@@ -20,7 +19,6 @@ export let checkwinner = (ctx) =>{
 import sequelize from '../lib/sequelize'
 import Sequelize from 'sequelize'
 export let testDB = (ctx) =>{
-    //console.log('sequelize',sequelize.query())
     const User = sequelize.define('user',{
     id: {
         type: Sequelize.STRING,

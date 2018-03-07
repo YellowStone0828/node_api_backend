@@ -1,8 +1,8 @@
 {
-  "name": "rainbow-api-core",
+  "name": "node-api-core",
   "version": "1.0.0",
-  "description": "rainbow-api-core",
-  "author": "RainbowUI Team",
+  "description": "node-api-core",
+  "author": "YellowStone",
   "scripts": {
     "start": "gulp nodemon",
     "dev": "gulp start",

@@ -10,14 +10,14 @@ export let System = {
   HTTP_server_port: '65534', // HTTP服务器端口号
   System_country: 'zh-cn', // 所在国家的国家代码
   Session_Key: 'RESTfulAPI', // 生产环境务必随机设置一个值
-  db_type: 'mysql' // 数据库类型
+  db_type: 'postgres' // 数据库类型
 }
 
 export let DB = {
   host: 'localhost', // 服务器地址
-  port: '3306', // 数据库端口号
-  username: 'jack', // 数据库用户名
-  password: 'jackpwd6-', // 数据库密码
-  database: 'ys_car', // 数据库名称
+  port: '5432', // 数据库端口号
+  username: 'postgres', // 数据库用户名
+  password: '123s456s', // 数据库密码
+  database: 'api_core', // 数据库名称
   prefix: 'api_' // 默认"api_"
 }

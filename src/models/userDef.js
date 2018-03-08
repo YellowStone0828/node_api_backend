@@ -1,16 +1,23 @@
 import Sequelize from 'sequelize'
-export default {
+
+export let usrDefinition = {
     id: {
         type: Sequelize.STRING,
-        field: 'user_id',
+        field: 'USER_ID',
         primaryKey: true
     },
     name: {
         type: Sequelize.STRING,
-        field: 'user_name'
+        field: 'USER_NAME'
     },
-    password: {
+    pwd: {
         type: Sequelize.STRING,
-        field: 'user_pwd'
+        field: 'USER_PASSWORD'
     }
+}
+
+export let usrDBconfig = {
+    timestamps: false,
+    tableName: 'r_pub_user',
+    freezeTableName: true
 }

@@ -18,19 +18,24 @@ export let checkwinner = (ctx) =>{
 
 import sequelize from '../lib/sequelize'
 import Sequelize from 'sequelize'
-import userDef from '../models/index'
-import sqlConfig from '../lib/sqlConfig'
+import modelDef from '../models/index'
 
 export let testDB = (ctx) =>{
-    const User = sequelize.define('user',userDef,sqlConfig);
+    //console.log(modelDef.userDef)
+    //console.log(sqlConfig)
+    const User = sequelize.define('user',modelDef.userDef.usrDefinition,modelDef.userDef.usrDBconfig);
 
     User.findAll({
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'pwd'],
         where:{
-           user_name:ctx.request.body.user.userName 
+           USER_NAME:ctx.request.body.user.userName 
         }
     }).then(user=>{
-        console.log(user[0].dataValues);
+        //console.log(ctx)
+        console.log(user[0].dataValues.id)
+        ctx.body = {
+            "success":user[0].dataValues.id
+        }
     })
     // sequelize.query("SELECT * FROM ys_user_info").then(myTableRows => {
     //      console.log(myTableRows)

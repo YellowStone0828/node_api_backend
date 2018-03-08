@@ -22,7 +22,7 @@ import modelDef from '../models/index'
 export let testDB = async (ctx) =>{
     //console.log(modelDef.userDef)
     //console.log(sqlConfig)
-    const User = sequelize.define('user',modelDef.userDef.usrDefinition,modelDef.userDef.usrDBconfig);
+    const User = sequelize.define('user',modelDef.userModel.usrDefinition,modelDef.userModel.usrDBconfig);
 
     await User.findAll({
         attributes: ['id', 'name'],

@@ -15,7 +15,9 @@ router
   // .post('/auth/:action', controllers.auth.Post)
 
   .post('/login', controllers.auth.Login)
+
   .post('/play/checkwinner',controllers.api.checkwinners)
+  
   .post('/play/testDB',controllers.api.testDB)
 
 module.exports = router

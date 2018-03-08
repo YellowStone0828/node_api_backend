@@ -17,27 +17,29 @@ export let checkwinner = (ctx) =>{
 }
 
 import sequelize from '../lib/sequelize'
-import Sequelize from 'sequelize'
 import modelDef from '../models/index'
 
-export let testDB = (ctx) =>{
+export let testDB = async (ctx) =>{
     //console.log(modelDef.userDef)
     //console.log(sqlConfig)
     const User = sequelize.define('user',modelDef.userDef.usrDefinition,modelDef.userDef.usrDBconfig);
 
-    User.findAll({
-        attributes: ['id', 'name', 'pwd'],
+    await User.findAll({
+        attributes: ['id', 'name'],
         where:{
            USER_NAME:ctx.request.body.user.userName 
         }
     }).then(user=>{
         //console.log(ctx)
-        console.log(user[0].dataValues.id)
+        console.log(user[0].dataValues)
         ctx.body = {
-            "success":user[0].dataValues.id
+            "userInfo":user[0]
         }
     })
-    // sequelize.query("SELECT * FROM ys_user_info").then(myTableRows => {
-    //      console.log(myTableRows)
-    // })
+
+    // let result = await sequelize.query("SELECT * FROM r_pub_user where \"USER_NAME\"="+"\'"+ctx.request.body.user.userName+"\'")
+    // //console.log(result)
+    // ctx.body = {
+    //     result:JSON.stringify(myTableRows[0][0])
+    // }
 }

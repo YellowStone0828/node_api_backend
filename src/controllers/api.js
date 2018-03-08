@@ -35,7 +35,7 @@ export let checkwinners = (ctx) => {
   play.checkwinner(ctx)
 }
 
-export let  testDB = (ctx) => {
+export let  testDB = async (ctx) => {
   const play = require('../services/gambling')
-  play.testDB(ctx)
+  await play.testDB(ctx)
 }

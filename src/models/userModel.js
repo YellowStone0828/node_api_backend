@@ -4,7 +4,8 @@ export let usrDefinition = {
     id: {
         type: Sequelize.STRING,
         field: 'USER_ID',
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     name: {
         type: Sequelize.STRING,
@@ -13,6 +14,14 @@ export let usrDefinition = {
     pwd: {
         type: Sequelize.STRING,
         field: 'USER_PASSWORD'
+    },
+    status : {
+        type: Sequelize.STRING,
+        field: 'STATUS'
+    },
+    error_login:{
+        type: Sequelize.STRING,
+        field: 'ERROR_LOGIN'
     }
 }
 

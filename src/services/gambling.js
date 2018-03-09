@@ -22,20 +22,31 @@ import modelDef from '../models/index'
 export let testDB = async (ctx) =>{
     //console.log(modelDef.userDef)
     //console.log(sqlConfig)
-    const User = sequelize.define('user',modelDef.userModel.usrDefinition,modelDef.userModel.usrDBconfig);
-
-    await User.findAll({
-        attributes: ['id', 'name'],
-        where:{
-           USER_NAME:ctx.request.body.user.userName 
-        }
-    }).then(user=>{
-        //console.log(ctx)
-        console.log(user[0].dataValues)
-        ctx.body = {
-            "userInfo":user[0]
-        }
+    const User = sequelize.define('user',modelDef.userModel.usrDefinition,modelDef.userModel.usrDBconfig) 
+    User.create({ 
+        name:ctx.request.body.user.userName,
+        pwd:ctx.request.body.user.userPwd
+        //status:ctx.request.body.user.status,
+        //error_login:ctx.request.body.user.error_login
     })
+        // .then(() => User.findOrCreate({where: {username: 'fnord'}, defaults: {job: 'something else'}}))
+        // .spread((user, created) => {
+        //     console.log(user.get({
+        //     plain: true
+        // }))
+    //console.log(created)
+    // await User.findAll({
+    //     attributes: ['id', 'name'],
+    //     where:{
+    //        USER_NAME:ctx.request.body.user.userName 
+    //     }
+    // }).then(user=>{
+    //     //console.log(ctx)
+    //     console.log(user[0].dataValues)
+    //     ctx.body = {
+    //         "userInfo":user[0]
+    //     }
+    // })
 
     // let result = await sequelize.query("SELECT * FROM r_pub_user where \"USER_NAME\"="+"\'"+ctx.request.body.user.userName+"\'")
     // //console.log(result)
